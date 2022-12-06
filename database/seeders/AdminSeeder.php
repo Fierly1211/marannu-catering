@@ -20,7 +20,7 @@ class AdminSeeder extends Seeder
     {
         User::factory()->create([
             'name' => env('ADMIN_NAME', 'Admin'),
-            'email' => env('ADMIN_EMAIL', 'admin@marannu-catering.com'),
+            'email' => env('ADMIN_EMAIL', 'admin@marannu-catering.test'),
             'username' => env('ADMIN_USERNAME', 'admin'),
             'gender' => env('ADMIN_GENDER', 'male'),
             'role' => Role::Admin,
