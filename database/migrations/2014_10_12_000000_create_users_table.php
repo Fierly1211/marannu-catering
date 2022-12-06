@@ -33,15 +33,17 @@ return new class extends Migration
         });
 
         /* First Admin */
-        User::create([
-            'name' => env('ADMIN_NAME', 'Admin'),
-            'email' => env('ADMIN_EMAIL', 'admin@marannu-catering.test'),
-            'username' => env('ADMIN_USERNAME', 'admin'),
-            'gender' => env('ADMIN_GENDER', 'male'),
-            'role' => Role::Admin,
-            'password' => Hash::make(env('ADMIN_PASSWORD', 'admin')),
-            'remember_token' => Str::random(10),
-        ]);
+        if (!env('APP_DEBUG')) {
+            User::create([
+                'name' => env('ADMIN_NAME', 'Admin'),
+                'email' => env('ADMIN_EMAIL', 'admin@marannu-catering.test'),
+                'username' => env('ADMIN_USERNAME', 'admin'),
+                'gender' => env('ADMIN_GENDER', 'male'),
+                'role' => Role::Admin,
+                'password' => Hash::make(env('ADMIN_PASSWORD', 'admin')),
+                'remember_token' => Str::random(10),
+            ]);
+        }
     }
 
     /**
